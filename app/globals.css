@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Dark theme (default) */
+:root {
+  --base-950: #0a0e14;
+  --base-900: #0f141b;
+  --base-800: #1a2029;
+  --base-700: #2a3340;
+  --base-600: #4a5568;
+  --accent: #3b82f6;
+  --text-primary: #f1f5f9;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  color-scheme: dark;
+}
+
+/* Light theme */
+.light {
+  --base-950: #e8edf5;
+  --base-900: #ffffff;
+  --base-800: #e2e8f0;
+  --base-700: #cbd5e1;
+  --base-600: #64748b;
+  --accent: #2563eb;
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --text-muted: #64748b;
+  color-scheme: light;
+}
+
+body {
+  @apply bg-base-950 text-primary font-sans antialiased;
+}
+
+/* Keyboard focus ring — visible against both themes */
+*:focus-visible {
+  @apply outline-none ring-2 ring-accent ring-offset-2 ring-offset-base-950;
+}
+
+/* Scrollbar — subtle, instrument-style */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-base-900;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-base-700 rounded;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-base-600;
+}
+
+/* Severity badge pulse on new results */
+@keyframes severity-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

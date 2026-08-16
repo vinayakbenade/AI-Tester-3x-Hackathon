@@ -1,0 +1,13 @@
+{
+  "builds": [
+    {
+      "src": "api/triage.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "functions": {
+    "api/triage.py": {
+      "maxDuration": 60
+    }
+  }
+}
